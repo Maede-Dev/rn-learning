@@ -1,16 +1,26 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
-  const [outputText, setOutputText] = useState("default text");
+  const [outputText, setOutputText] = useState();
+  const [title, setTitle] = useState("DEFAULT");
+
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 50, color: "red" }}>{outputText}</Text>
-      <Button
-        title="change the text"
-        onPress={() => setOutputText("the text changed")}
+      <Text style={{ fontSize: 50, color: "red" }}>{title}</Text>
+      <TextInput
+        onChangeText={(text) => setOutputText(text)}
+        placeholder="write your name"
+        keyboardType="text"
+        style={{
+          borderColor: "black",
+          borderRadius: 8,
+          borderWidth: 1,
+          marginBottom: 15,
+          padding: 5,
+        }}
       />
+      <Button title="change the text" onPress={() => setTitle(outputText)} />
     </View>
   );
 }
