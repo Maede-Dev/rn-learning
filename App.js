@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
   const [outputText, setOutputText] = useState();
-  const [title, setTitle] = useState("DEFAULT");
+  const [title, setTitle] = useState("TITLE");
 
   return (
     <View style={styles.container}>
@@ -18,6 +18,7 @@ export default function App() {
           borderWidth: 1,
           marginBottom: 15,
           padding: 5,
+          outline: "none",
         }}
       />
       <Button title="change the text" onPress={() => setTitle(outputText)} />
